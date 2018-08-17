@@ -7,11 +7,3 @@ while
 :
 in operator
 associative array
-
-Q1: Temperature conversion program
-Q2: Expanding fibonacci series
-Q3: Perform all operation of list, tuple and dictionary
-Q4: create a dictionary with help of two lists
-Q5: To create a stack with help of list
-Q6: implement queue with list
-Q7: print symmetric matrix

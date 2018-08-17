@@ -11,7 +11,7 @@ def my_input(msg):
             return result
 
 print("Hello World!")
-x = 2
+x = my_input("Enter multiple:")
 si = my_input("Enter size of matrix:")
 
 for i in range(1, si+1):
