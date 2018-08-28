@@ -12,5 +12,5 @@ def my_input(msg):
         else:    
             return result
 
-c = my_input("Enter temperature in celcius:")
-print("Temperature in Fahrenheit is:", ((9/5)*c + 32))
+print("Temperature in Fahrenheit is:", 
+      (9/5)*my_input("Enter temperature in celcius:") + 32)

@@ -1,6 +1,5 @@
 
 # Stack implemented using list
-import copy
 
 print("Hello World!")
 
@@ -16,7 +15,6 @@ def my_input(msg):
             return result
 
 def pushS(a, size):
-    global stack
     if len(stack) >= size:
         print("Stack overflow")
         return
@@ -24,9 +22,9 @@ def pushS(a, size):
 
 def popS():
     if len(stack) <= 0:
-        print("Stack underflow, exiting")
+        print("Stack underflow")
         return
-    a = copy.deepcopy(stack[-1])
+    a = stack[-1]
     del stack[-1]
     return a
 
@@ -37,7 +35,7 @@ for i in range(size):
 while True:
     ch = my_input("\n\n1. To push element."+
                   "\n2. To pop element."+
-                  "\n0. To exit"
+                  "\n0. To exit"+
                   "\nWhat would you like():")
     if ch == 1:
         pushS(input("Enter element to push: "), size)
@@ -47,4 +45,3 @@ while True:
         exit()
     else:
         print("\nInvalid input exiting")
-        
