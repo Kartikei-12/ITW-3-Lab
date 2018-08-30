@@ -11,7 +11,7 @@ print("list1[2:6]", list1[2:6])
 print("list1[-2]:", list1[-2])
 
 tup1 = (100, 3, 4, 'a', 1, 87, 1, 2, 'b')
-print("Original tuple:", list1)
+print("Original tuple:", tup1)
 print("tup1[2]:", tup1[2])
 print("tup1[2:]:", tup1[2:])
 print("tup1[:2]:", tup1[:2])

@@ -3,4 +3,6 @@
 
 ### Introduction
 
-This is work done in course of ITW-3 at Indian [Institute Information Tecnology Kota](iiitkota.ac.in) 
+This is work done in course of ITW-3 at [Indian Institute Information Tecnology Kota](iiitkota.ac.in)
+
+### Comments

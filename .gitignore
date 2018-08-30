@@ -1,3 +1,4 @@
 .vscode
-.txt
-.exe
+*.txt
+*.exe
+test.cpp
