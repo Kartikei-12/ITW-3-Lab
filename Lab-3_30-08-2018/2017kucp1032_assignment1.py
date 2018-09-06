@@ -35,7 +35,12 @@ with open("test.cpp", 'r') as fi:
 
     #Removes multi line commments
     while "/*" in data:
-        data = data.replace(data[data.find("/*")-1:data.find("*/")+2], "")
+        data = data.replace(
+            data[
+                data.find("/*")-1 :
+                data.find("*/")+2
+            ], '\n'
+        )
     
     #Remove strings
     while '"' in data:
@@ -43,24 +48,31 @@ with open("test.cpp", 'r') as fi:
                     data[ 
                             data.find('"') : 
                             data.find('"', data.find('"')+1)+1 
-                        ], ''
+                    ], '\n'
                 )
     
-    for line in data.splitlines():
-        if line[0:2] != "//":
-            for word in line.split(" "):
-                for ch in word:
-                    if ch in puntuations:
-                        puntuationsDict[ch] = puntuationsDict[ch] + 1
-                for key in keywords:
-                    if word.find(key) != -1:
-                        keywordDict[key] = keywordDict[key] + 1
-                        break
-                for key in operators:
-                    if word.find(key) != -1:
-                        operatorDict[key] = operatorDict[key] + 1
-                        break
+    #Remove single line comments
+    while "//" in data:
+        data = data.replace( 
+                    data[ 
+                            data.find('//') : 
+                            data.find('//', data.find('\n')+1)+1 
+                    ], '\n'
+                )
 
+    for line in data.splitlines():
+        for word in line.split(" "):
+            for ch in word:
+                if ch in puntuations:
+                    puntuationsDict[ch] += 1
+            for key in keywords:
+                if word.find(key) != -1:
+                    keywordDict[key] += 1
+                    break
+            for key in operators:
+                if word.find(key) != -1:
+                    operatorDict[key] += 1
+                    break
 
 print("Keyword: ", "Count:")
 for key in keywordDict.keys():
