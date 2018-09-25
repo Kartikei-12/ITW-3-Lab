@@ -8,7 +8,6 @@ class Node:
         self.val=val
         self.left=left
         self.right=right
-    
     def showNode(self):
         print("Value:", self.val)
 
@@ -17,13 +16,18 @@ class BST:
     def __init__(self):
         self.root=Node()
 
-    def inOrderTraversal(self, node=None):
-        if node is not None:
+    @staticmethod
+    def iOT(node=None):
+        if node:
+            BST.iOT(node.left)
             node.showNode()
-            self.inOrderTraversal(node.left)
-            self.inOrderTraversal(node.right)
+            BST.iOT(node.right)
 
-    def newNode(self, root, val=0):
+    def inOrderTraversal(self):
+        BST.iOT(self.root)
+
+    @staticmethod
+    def nN(root, val=0):
         if root is None:
             root = Node(val)
         else:
@@ -31,17 +35,19 @@ class BST:
                 if root.right is None:
                     root.right = Node(val)
                 else:
-                    self.newNode(root.right, val)
+                    BST.nN(root.right, val)
             else:
                 if root.left is None:
                     root.left = Node(val)
                 else:
-                    self.newNode(root.left, val)
-        
+                    BST.nN(root.left, val)
+    
+    def newNode(self, val):
+        BST.nN(self.root, val)
 
 
 Tree = BST()
 for i in range(1, 10):
-    Tree.newNode(root=Tree.root, val=i)
+    Tree.newNode(val=i)
 
 Tree.inOrderTraversal()
